@@ -17,7 +17,7 @@ public class CustCon {
 	CustomerRepository myclass;
 
 	//gets
-	@GetMapping("/")
+	@GetMapping("/customers")
 	public String getAll() {
 		return myclass.findAll().toString();
 	}
@@ -38,7 +38,7 @@ public class CustCon {
 	
 	//create
 	@PostMapping("/customers")
-	public String createcustmoer(@RequestBody Customer newCust) {
+	public String createcustomer(@RequestBody Customer newCust) {
 		return myclass.save(newCust).toString();		
 	}
 	
