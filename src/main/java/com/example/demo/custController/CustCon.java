@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,4 +44,22 @@ public class CustCon {
 	}
 	
 	//put
+	@PutMapping("/customers/{id}")
+	public String updateCustmoer(@PathVariable Long id, @RequestBody Customer newCust) {
+		
+		Customer oldCustmoer = myclass.findById(id).get();
+		
+		//updating first name
+		
+		if (oldCustmoer.getFirstName() != newCust.getFirstName()) {
+			oldCustmoer.setFirstName(newCust.getFirstName());	
+		}
+		
+		if (oldCustmoer.getLastName() != newCust.getLastName()) {
+			oldCustmoer.setLastName(newCust.getLastName());
+		}
+		
+		
+		return myclass.save(oldCustmoer).toString();
+	}
 }
