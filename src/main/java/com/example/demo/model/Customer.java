@@ -11,7 +11,19 @@ public class Customer {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
-  private String firstName;
+  public void setId(Long id) {
+	this.id = id;
+}
+
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
+}
+
+public void setLastName(String lastName) {
+	this.lastName = lastName;
+}
+
+private String firstName;
   private String lastName;
 
   protected Customer() {}
