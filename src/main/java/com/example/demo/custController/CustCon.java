@@ -33,9 +33,9 @@ public class CustCon {
 	}
 	
 	@GetMapping("/customers/{id}")
-	public String getId(@PathVariable String id) {
-		//id = Long.parseLong(id);
-		return myclass.findById(Long.parseLong(id)).toString();	
+	public Customer getId(@PathVariable String id) {
+		
+		return myclass.findById(Long.parseLong(id));	
 	}
 	
 	//deletes	
